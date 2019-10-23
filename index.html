@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset='utf-8'/>
+        <title>Jungle Voodoo</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+        <script src='env.js'></script>
+        <script src='index.js'></script>
+        <link href='index.css' rel='stylesheet'/>
+    </head>
+
+    <body>
+        <header id="header">
+            <a href="index.html">
+                <img src="logo_voodoo_header.png" alt="logo" height="60" width="90" class="logo">
+            </a>
+            <div class="title">
+                Voodoo
+                <br>
+                <small>It's a kind of magic</small>
+            </div>
+        </header>
+        <main>
+            <center>
+                <span id="subtitle">Bus GPX &rarr; JOSM</span>
+                <br>Select OSM ways that match the GPS track of a bus trip
+                <section>
+                    <input placeholder="3130292" id="input_track"></input>
+                    <a class="button" id="button_track" onclick="GPX_to_JOSM()">Go</a>
+                </section>
+                <p></p>
+                <p></p>
+                <section>
+                    <a id="gpx_link"></a>
+                    <a id="josm_link"></a>
+                    <p></p>
+                    <div id="errors"></div>
+                </section>
+            </center>
+        </main>
+        <footer>
+            <br>This page helps you to turn a GPS track from a bus trip (created for instance with
+            <a href="https://github.com/Jungle-Bus/osmtracker-layouts">OSM Tracker Jungle Bus layouts</a>
+            and uploaded to
+            <a href="https://www.openstreetmap.org/traces/tag/bus%20route">openstreetmap.org</a>) to a set of ways that can be used to create a route relation in JOSM.
+        </footer>
+    </body>
+</html>
