@@ -1,0 +1,33 @@
+{
+  "name": "voodoo",
+  "version": "1.0.0",
+  "description": "it's a kind of magic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:js": "minify env.js index.js > dist/index.js",
+    "build:css": "minify index.css > dist/index.css",
+    "build:html": "minify index.html > dist/index.html",
+    "build": "mkdir -p dist && npm run build:html && npm run build:js && npm run build:css && cp -r fonts dist/font && cp logo_voodoo_header.png dist/logo_voodoo_header.png"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jungle-Bus/Voodoo.git"
+  },
+  "keywords": [
+    "bus",
+    "osm",
+    "openstreetmap",
+    "josm",
+    "map-matching"
+  ],
+  "author": "nlehuby, Jungle Bus",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Jungle-Bus/Voodoo/issues"
+  },
+  "homepage": "https://github.com/Jungle-Bus/Voodoo#readme",
+  "devDependencies": {
+    "minify": "^4.1.3"
+  }
+}
