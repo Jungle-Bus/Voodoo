@@ -48,6 +48,7 @@ function GPX_to_JOSM() {
         /*.then(data => console.log(data))*/
         .then(function(data) {
             let trackpoints = [];
+            let timepoints = [];
             var trks = [].slice.call(data.querySelectorAll('trk'));
             for (let idx in trks) {
                 var trk = trks[idx];
@@ -58,10 +59,15 @@ function GPX_to_JOSM() {
                     pt.lat = parseFloat(trkpt.getAttribute("lat"));
                     pt.lon = parseFloat(trkpt.getAttribute("lon"));
                     trackpoints.push(pt);
+                    var times = [].slice.call(trkpt.querySelectorAll('time'));
+                    timepoints.push(new Date(times[0].innerHTML));
                 }
             }
+            let timediff = (timepoints[timepoints.length-1].getTime()-timepoints[0].getTime()) / 1000
+            let duration = Math.round(timediff/60)
+            var track_metadata = document.getElementById('track_metadata');
+            track_metadata.innerText = "track duration in minutes : " + duration
 
-            //console.log(trackpoints)
             return trackpoints
         })
         .then(data => {
